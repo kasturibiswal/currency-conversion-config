@@ -1,0 +1,35 @@
+spring:
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: 
+  h2:
+    console:
+      path: /h2
+      enabled: true
+      
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 2
+    leaseExpirationDurationInSeconds: 5
+    preferIpAddress: true
+    metadata-map:
+      zone: A
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    prefer-same-zone-eureka: true
+    serviceUrl:
+      #defaultZone: http://192.168.99.102:8761/eureka
+      defaultZone: http://localhost:8761/eureka
+      # defaultZone: ${conversionfactorms.eureka.url:http://eureka-1:8761/eureka}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' 
