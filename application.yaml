@@ -15,6 +15,12 @@ spring:
         web-allow-others: true
       
 eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 2
+    leaseExpirationDurationInSeconds: 5
+    preferIpAddress: true
+    metadata-map:
+      zone: A
   client:
     registerWithEureka: true
     fetchRegistry: true
